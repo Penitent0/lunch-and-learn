@@ -12,8 +12,8 @@ RSpec.describe EdamanService, type: :service do
     end
 
     it 'has recipe search method by country method' do
-      response = EdamanService.recipe_search('mexico')
-      
+      response = EdamanService.recipe_search_endpoint('mexico')
+
       expect(response).to be_a(Hash)
       expect(response).to have_key(:from)
       expect(response[:from]).to be_a(Integer)
