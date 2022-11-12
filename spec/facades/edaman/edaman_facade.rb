@@ -5,5 +5,13 @@ RSpec.describe EdamanFacade, type: :facade do
     it 'instantiates' do
       expect(EdamanFacade.new).to be_a(EdamanFacade)
     end
+
+    it 'instantiates recipe info poro' do
+      recipes = EdamanFacade.recipe_search('mexico')
+
+      recipes.each do |recipe| 
+        expect(recipe).to be_a(EdamanRecipe)
+      end
+    end
   end
 end
