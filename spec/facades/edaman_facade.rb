@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe EdamanFacade, type: :facade do
-  require 'pry'; binding.pry
   describe 'gets edaman service endpoints and instantiates poros', vcr: { record: :new_episodes } do
     it 'instantiates' do
       expect(EdamanFacade.new).to be_a(EdamanFacade)
@@ -12,6 +11,10 @@ RSpec.describe EdamanFacade, type: :facade do
 
       expect(recipes).to be_a(Array)
 
+      recipes.each do |recipe|
+        expect(recipe).to be_a(EdamanRecipe)
+        expect(recipe.country).to eq('mexico')
+      end
     end
   end
 end
