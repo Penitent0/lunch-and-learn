@@ -7,7 +7,12 @@ class EdamanService
     end
   end
 
-  def self.recipe_search(country = nil)
-    response = conn.get
+  def self.recipe_search(country)
+    response = conn.get('/api/recipes/v2', q: country )
+    parse(response)
+  end
+
+  def self.parse(api_data)
+    JSON.parse(api_data.body, symbolize_names: true)
   end
 end
