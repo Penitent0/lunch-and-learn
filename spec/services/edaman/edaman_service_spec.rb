@@ -5,5 +5,11 @@ RSpec.describe EdamanService, type: :service do
     it "Instantiates" do
       expect(EdamanService.new).to be_a(EdamanService)
     end
+
+    it 'has successful response on connection' do
+      response = EdamanService.conn.get('/api/recipes/v2')
+
+      expect(response.status).to eq(200)
+    end
   end
 end
