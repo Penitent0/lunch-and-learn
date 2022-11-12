@@ -1,0 +1,3 @@
+class EdamanFacade 
+  
+end
