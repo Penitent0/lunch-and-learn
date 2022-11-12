@@ -8,12 +8,9 @@ RSpec.describe EdamanFacade, type: :facade do
 
     it 'instantiates recipe info poro' do
       recipes = EdamanFacade.recipe_search('mexico')
-
+      require 'pry'; binding.pry
       expect(recipes).to be_a(Array)
 
-      require 'pry'; binding.pry
     end
-
-
   end
 end
