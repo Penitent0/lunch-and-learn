@@ -4,7 +4,6 @@ class EdamanRecipe
               :image,
               :country
 
-
   def initialize(api, country)
     @url = api[:url]
     @title = api[:label]
