@@ -8,7 +8,6 @@ RSpec.describe EdamamService, type: :service do
 
     it 'has successful response on connection' do
       response = EdamamService.conn.get('/api/recipes/v2')
-      require 'pry'; binding.pry
       expect(response.status).to eq(200)
     end
 
