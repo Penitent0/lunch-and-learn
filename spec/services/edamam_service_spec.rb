@@ -1,18 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe EdamanService, type: :service do
-  describe 'gets endpoints for edaman receipe api', vcr: { record: :new_episodes } do
+RSpec.describe EdamamService, type: :service do
+  describe 'gets endpoints for Edamam receipe api', vcr: { record: :new_episodes } do
     it "Instantiates" do
-      expect(EdamanService.new).to be_a(EdamanService)
+      expect(EdamamService.new).to be_a(EdamamService)
     end
 
     it 'has successful response on connection' do
-      response = EdamanService.conn.get('/api/recipes/v2')
+      response = EdamamService.conn.get('/api/recipes/v2')
+      require 'pry'; binding.pry
       expect(response.status).to eq(200)
     end
 
     it 'has recipe search method by country method' do
-      response = EdamanService.recipe_search_endpoint('mexico')
+      response = EdamamService.recipe_search_endpoint('mexico')
 
       expect(response).to be_a(Hash)
       expect(response).to have_key(:from)

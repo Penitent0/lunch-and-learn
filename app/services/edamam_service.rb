@@ -1,4 +1,4 @@
-class EdamanService 
+class EdamamService 
   def self.recipe_search_endpoint(country)
     response = conn.get('/api/recipes/v2', q: country )
     parse(response)
@@ -9,7 +9,7 @@ class EdamanService
   def self.conn 
     Faraday.new(url: 'https://api.edamam.com') do |f|
       f.params['app_id'] = ENV['edamam_api_id']
-      f.params['app_key'] = ENV['edaman_api_key']
+      f.params['app_key'] = ENV['edamam_api_key']
       f.params['type'] = 'public'
     end
   end
