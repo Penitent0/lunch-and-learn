@@ -1,4 +1,11 @@
-class UnsplashService 
+class UnsplashService
+  def self.country_search_endpoint(country)
+    response = conn.get('/search/photos', query: country)
+    parse(response)
+  end
+
+  private
+
   def self.conn 
     Faraday.new(url: 'https://api.unsplash.com') do |f|
       f.params['client_id'] = ENV['unsplash_api_key']
