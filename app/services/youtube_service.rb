@@ -11,6 +11,7 @@ class YoutubeService
       f.params['channelId'] = 'UCluQ5yInbeAkkeCndNnUhpw'
       f.params['part'] = 'snippet'
       f.params['key'] = ENV['youtube_api_key']
+      f.params['maxResults'] = 1
     end
   end
 

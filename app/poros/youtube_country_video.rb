@@ -1,9 +1,9 @@
 class YoutubeCountryVideo 
   attr_reader :country,
-              :title,
-              :video_:id
+              :video_id,
+              :title
 
-  def initialize(country, title, video_id)
+  def initialize(country, video_id, title)
     @country = country
     @title = title
     @video_id = video_id
