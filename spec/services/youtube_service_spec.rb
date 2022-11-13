@@ -14,7 +14,7 @@ RSpec.describe YoutubeService, type: :service do
 
     it 'has search by country endpoint' do
       response = YoutubeService.country_search_endpoint('Australia')
-      
+      require 'pry'; binding.pry
       expect(response).to be_a(Hash)
       expect(response).to have_key(:items)
       expect(response[:items]).to be_a(Array)
