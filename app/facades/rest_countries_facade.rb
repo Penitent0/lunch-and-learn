@@ -1,7 +1,6 @@
 class RestCountriesFacade
   def self.all_countries
-    RestCountriesService.all_countries_endpoint.map do |country|
-      RestCountry.new(country[:name][:common])
-    end
+    countries = RestCountries.new
+    RestCountriesService.all_countries_endpoint.flat_map { |country| countries.add_countries(country[:name][:common]) }
   end
 end
