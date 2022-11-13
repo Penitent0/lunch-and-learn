@@ -13,7 +13,6 @@ RSpec.describe RestCountriesService, type: :service do
 
     it 'has all countries endpoint' do
       response = RestCountriesService.all_countries_endpoint 
-
       expect(response).to be_a(Array)
       response.each do |country|
         expect(country).to be_a(Hash)

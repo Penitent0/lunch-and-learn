@@ -1,7 +1,9 @@
 class RestCountriesService
   def self.all_countries_endpoint
-    response = conn.get('/v3.1/all')
-    parse(response)
+    Rails.cache.fetch("all_countries_endpoint", expires_in: 30.days) do
+      response = conn.get('/v3.1/all')
+      parse(response)
+    end
   end
 
   private

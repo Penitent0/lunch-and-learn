@@ -78,7 +78,7 @@ VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
   config.filter_sensitive_data('<edamam_api_id>') { ENV['edamam_api_id'] }
-  config.filter_sensitive_data('<edaman_api_key>') { ENV['edaman_api_key'] }
+  config.filter_sensitive_data('<Edamam_api_key>') { ENV['Edamam_api_key'] }
   config.configure_rspec_metadata!
 end
 

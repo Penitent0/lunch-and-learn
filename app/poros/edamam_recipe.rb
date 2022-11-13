@@ -1,4 +1,4 @@
-class EdamanRecipe
+class EdamamRecipe
   attr_reader :url,
               :title,
               :image,
