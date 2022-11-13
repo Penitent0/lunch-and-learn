@@ -8,10 +8,10 @@ class Api::V1::RecipesController < ApplicationController
 
   private
 
-  def verify_country 
-    if params[:country].nil?
+  def verify_country
+    if params[:country].nil? || !RestCountriesFacade.all_countries.include?(params[:country].capitalize)
       params[:country] = country_picker
-    end
+    end 
   end
 
   def country_picker
