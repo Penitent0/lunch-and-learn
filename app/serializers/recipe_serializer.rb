@@ -8,7 +8,7 @@ class RecipeSerializer
           title: recipe.title,
           url: recipe.url,
           country: recipe.country,
-          url: recipe.url
+          image: recipe.image
         }
       }
       end
