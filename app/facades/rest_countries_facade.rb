@@ -1,6 +1,7 @@
-class RestCountriesFacade 
-  def self.all_countries 
-    response = RestCountriesService.all_countries_endpoint
-    require 'pry'; binding.pry
+class RestCountriesFacade
+  def self.all_countries
+    RestCountriesService.all_countries_endpoint.map do |country|
+      RestCountry.new(country[:name][:common])
+    end
   end
 end
