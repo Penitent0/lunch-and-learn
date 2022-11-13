@@ -19,6 +19,7 @@ RSpec.describe RestCountriesService, type: :service do
         expect(country).to be_a(Hash)
         expect(country).to have_key(:name)
         expect(country[:name]).to be_a(Hash)
+        expect(country[:name][:common]).to be_a(String)
       end
     end
   end
