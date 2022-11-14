@@ -14,4 +14,10 @@ class ErrorSerializer
       error: "Country Not Found"
     }
   end
+
+  def self.bad_email 
+    {
+      error: "Email Not Found"
+    }
+  end
 end
