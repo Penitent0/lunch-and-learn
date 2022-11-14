@@ -28,7 +28,8 @@ RSpec.describe RestCountriesService, type: :service do
       expect(response).to be_a(Array)
       expect(response.first).to have_key(:name)
       expect(response.first[:name][:common]).to eq('France')
-
+      expect(response.first[:latlng]).to be_a(Array)
+      expect(response.first[:latlng].first).to be_a(Float)
     end
   end
 end
