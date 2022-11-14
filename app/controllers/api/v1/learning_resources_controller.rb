@@ -1,6 +1,5 @@
 class Api::V1::LearningResourcesController < ApplicationController
   def index
-    require 'pry'; binding.pry
     video = YoutubeFacade.country_search(params[:country]).first
     images = UnsplashFacade.country_search(params[:country])
 
