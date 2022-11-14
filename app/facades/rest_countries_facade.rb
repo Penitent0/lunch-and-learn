@@ -6,6 +6,6 @@ class RestCountriesFacade
 
   def self.one_country_lat_lng(country)
     country = RestCountriesService.one_country_endpoint(country).first
-    
+    CapitalLatLng.new(country[:capitalInfo][:latlng][0], country[:capitalInfo][:latlng][1])
   end
 end

@@ -24,7 +24,7 @@ RSpec.describe RestCountriesService, type: :service do
 
     it 'has one country endpoint' do
       response = RestCountriesService.one_country_endpoint('France')
-      require 'pry'; binding.pry
+      
       expect(response).to be_a(Array)
       expect(response.first).to have_key(:name)
       expect(response.first[:name][:common]).to eq('France')

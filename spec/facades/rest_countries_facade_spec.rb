@@ -16,7 +16,7 @@ RSpec.describe RestCountriesFacade, type: :facade do
     end
 
     it 'instantiates rest countries one country poro' do
-      country = RestCountriesService.one_country_endpoint('France').first
+      country = RestCountriesService.one_country_endpoint('France')
       require 'pry'; binding.pry
     end
   end
