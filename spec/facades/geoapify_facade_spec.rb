@@ -8,7 +8,14 @@ RSpec.describe GeoapifyFacade, type: :facade do
 
     it 'instantiates tourist sight info poros' do
       sights = GeoapifyFacade.tourist_info(47.620422,-122.335167)
-      require 'pry'; binding.pry
+
+      expect(sights).to be_a(Array)
+      sights.each do |sight|
+        expect(sight).to be_a(TouristSightInfo)
+        expect(sight.name).to be_a(String)
+        expect(sight.address).to be_a(String)
+        expect(sight.place_id).to be_a(String)
+      end
     end
   end
 end
