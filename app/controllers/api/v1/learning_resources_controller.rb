@@ -1,4 +1,6 @@
 class Api::V1::LearningResourcesController < ApplicationController
+  before_action :verify_country, only: %i[index]
+
   def index
     video = YoutubeFacade.country_search(params[:country]).first
     images = UnsplashFacade.country_search(params[:country])

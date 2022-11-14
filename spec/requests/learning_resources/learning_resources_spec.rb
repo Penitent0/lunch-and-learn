@@ -2,11 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "LearningResources", type: :request do
   describe "GET /learning_resources", vcr: { record: :new_episodes } do
-    it "returns http success" do
-      get "/api/v1/learning_resources"
-      expect(response).to have_http_status(:success)
-    end
-
     it 'returns correct json object' do
       get "/api/v1/learning_resources", params: { country: "Germany" }
       expect(response).to be_successful
@@ -32,24 +27,15 @@ RSpec.describe "LearningResources", type: :request do
       end
     end
 
-    it 'returns empty arrays for video and images if no images or videos are found' do 
-      get "/api/v1/learning_resources", params: { country: "planedogcatbirdbuildingshovel" }
-      expect(response).to be_successful
-
-      learning_resource = JSON.parse(response.body, symbolize_names: true)
-
-      expect(learning_resource[:data][:attributes][:video]).to eq([])
-      expect(learning_resource[:data][:attributes][:images]).to eq([])
-      expect(learning_resource[:data][:attributes][:country]).to eq("planedogcatbirdbuildingshovel")
+    it 'had sad path if country cannot be found in REST countries API' do
+      get "/api/v1/learning_resources", params: { country: "A Made Up Country That Doesn't Exist" }
+      expect(response).to have_http_status(:bad_request)
 
       get "/api/v1/learning_resources", params: { country: "1234567890" }
-      expect(response).to be_successful
+      expect(response).to have_http_status(:bad_request)
 
-      learning_resource = JSON.parse(response.body, symbolize_names: true)
-
-      expect(learning_resource[:data][:attributes][:video]).to eq([])
-      expect(learning_resource[:data][:attributes][:images]).to eq([])
-      expect(learning_resource[:data][:attributes][:country]).to eq("1234567890")
+      get "/api/v1/learning_resources", params: { country: "The State of Mind" }
+      expect(response).to have_http_status(:bad_request)
     end
   end
 end

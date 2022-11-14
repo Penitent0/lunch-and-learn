@@ -8,4 +8,10 @@ class ErrorSerializer
       end
     }
   end
+
+  def self.bad_country
+    {
+      error: "Country Not Found"
+    }
+  end
 end

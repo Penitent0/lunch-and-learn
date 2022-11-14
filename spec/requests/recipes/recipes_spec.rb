@@ -2,12 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Recipes", vcr: { record: :new_episodes }, type: :request do
   describe "GET /recipes" do
-    it "returns http success" do
-      get "/api/v1/recipes"
-
-      expect(response).to have_http_status(:success)
-    end
-
     it 'returns array of recipes with id null' do
       get "/api/v1/recipes", params: { country: "Mexico" }
       expect(response).to be_successful
@@ -38,6 +32,14 @@ RSpec.describe "Recipes", vcr: { record: :new_episodes }, type: :request do
         expect(recipe).to_not have_key(:yield)
         expect(recipe).to_not have_key(:dietLabels)
       end
+    end
+
+    it 'has sad path if country cannot be found or is not present' do
+      get "/api/v1/recipes", params: { country: "COUNTRY NOT FOUND" }
+      expect(response).to have_http_status(:bad_request)
+
+      get "/api/v1/recipes"
+      expect(response).to have_http_status(:bad_request)
     end
   end
 end
