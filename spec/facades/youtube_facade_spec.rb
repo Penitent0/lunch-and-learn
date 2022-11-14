@@ -7,12 +7,14 @@ RSpec.describe YoutubeFacade, type: :facade do
     end
 
     it 'instantiates youtube country video poro' do
-      country_video = YoutubeFacade.country_search('Mexico')
+      video_array = YoutubeFacade.country_search('Mexico')
 
-      expect(country_video).to be_a(YoutubeCountryVideo)
-      expect(country_video.country).to eq('Mexico')
-      expect(country_video.title).to be_a(String)
-      expect(country_video.video_id).to be_a(String)
+      video = video_array.first
+
+      expect(video).to be_a(YoutubeCountryVideo)
+      expect(video.country).to eq('Mexico')
+      expect(video.title).to be_a(String)
+      expect(video.video_id).to be_a(String)
     end
   end
 end
