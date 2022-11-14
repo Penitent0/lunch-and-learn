@@ -35,7 +35,7 @@ RSpec.describe 'tourist_sights' do
       end
     end
 
-    it 'has sad path if country params does not match REST countries list' do
+    it 'has sad path if country params does not match REST countries list or if no country is provided' do
       get "/api/v1/tourist_sights", params: { country: "Made Up Country" }
 
       expect(response).to have_http_status(:bad_request)
@@ -45,6 +45,10 @@ RSpec.describe 'tourist_sights' do
       expect(response).to have_http_status(:bad_request)
 
       get "/api/v1/tourist_sights", params: { country: "Franc" }
+
+      expect(response).to have_http_status(:bad_request)
+
+      get "/api/v1/tourist_sights", params: { country: "" }
 
       expect(response).to have_http_status(:bad_request) 
     end
