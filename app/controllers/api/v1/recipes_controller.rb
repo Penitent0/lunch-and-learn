@@ -10,7 +10,7 @@ class Api::V1::RecipesController < ApplicationController
 
   def verify_country
     if params[:country].nil? || !RestCountriesFacade.all_countries.include?(params[:country].capitalize)
-      params[:country] = country_picker
+      render json: ErrorSerializer.bad_country, status: 400
     end 
   end
 
