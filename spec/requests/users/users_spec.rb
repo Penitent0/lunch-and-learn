@@ -4,27 +4,25 @@ RSpec.describe 'Users' do
   describe 'POST /users', vcr: { record: :new_episodes } do
     let(:user_params) do
       {
-        user: {
-          name: "Test Person",
-          email: "testmail@internet.org"
-        }
+        name: "Test Person",
+        email: "testmail@internet.org",
+        password: "test",
+        password_confirmation: "test"
       }
     end
 
     let(:bad_user_params_no_name) do
       {
-        user: {
-          email: "testmail@internet.org"
-        }
+        email: "testmail@internet.org"
       }
     end
 
     let(:bad_user_params_same_email) do
       {
-        user: {
-          name: "Test Person Junior",
-          email: "testmail@internet.org"
-        }
+        name: "Test Person Junior",
+        email: "testmail@internet.org",
+        password: "testy",
+        password_confirmation: "testy"
       }
     end
 
