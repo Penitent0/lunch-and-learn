@@ -16,8 +16,11 @@ RSpec.describe RestCountriesFacade, type: :facade do
     end
 
     it 'instantiates rest countries one country poro' do
-      country = RestCountriesService.one_country_endpoint('France')
-      require 'pry'; binding.pry
+      country = RestCountriesFacade.one_country_lat_lng('France')
+  
+      expect(country).to be_a(CapitalLatLng)
+      expect(country.lat).to be_a(Float)
+      expect(country.lng).to be_a(Float)
     end
   end
 end
