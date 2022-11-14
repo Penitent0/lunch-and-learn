@@ -5,5 +5,10 @@ RSpec.describe GeoapifyFacade, type: :facade do
     it 'instantiates' do
       expect(GeoapifyFacade.new).to be_a(GeoapifyFacade)
     end
+
+    it 'instantiates tourist sight info poros' do
+      sights = GeoapifyFacade.tourist_info(47.620422,-122.335167)
+      require 'pry'; binding.pry
+    end
   end
 end
