@@ -8,7 +8,7 @@ RSpec.describe GeoapifyService, type: :service do
 
     it 'has tourist info endpoint' do
       response = GeoapifyService.tourist_info_endpoint(47.6062, 122.3321)
-      require 'pry'; binding.pry
+      
     end
   end
 end
