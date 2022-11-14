@@ -6,6 +6,9 @@ RSpec.describe GeoapifyService, type: :service do
       expect(GeoapifyService.new).to be_a(GeoapifyService)
     end
 
-    
+    it 'has tourist info endpoint' do
+      response = GeoapifyService.tourist_info_endpoint(47.6062, 122.3321)
+      require 'pry'; binding.pry
+    end
   end
 end
