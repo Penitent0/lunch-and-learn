@@ -82,6 +82,7 @@ VCR.configure do |config|
   config.filter_sensitive_data('<youtube_api_key>') { ENV['youtube_api_key'] }
   config.filter_sensitive_data('<unsplash_api_key>') { ENV['unsplash_api_key'] }
   config.filter_sensitive_data('<unsplash_secret_key>') { ENV['unsplash_secret_key'] }
+  config.filter_sensitive_data('<geoapify_api_key>') { ENV['geoapify_api_key'] }
   config.configure_rspec_metadata!
 end
 

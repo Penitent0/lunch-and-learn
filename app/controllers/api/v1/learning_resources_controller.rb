@@ -1,5 +1,5 @@
 class Api::V1::LearningResourcesController < ApplicationController
-  before_action :verify_country, only: %i[index]
+  before_action :verify_country
 
   def index
     video = YoutubeFacade.country_search(params[:country]).first

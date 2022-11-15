@@ -6,6 +6,11 @@ class RestCountriesService
     end
   end
 
+  def self.one_country_endpoint(country)
+    response = conn.get("/v3.1/name/#{country}")
+    parse(response)
+  end
+
   private
 
   def self.conn
