@@ -16,7 +16,7 @@ class Api::V1::FavoritesController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     favorite = Favorite.find(params[:favorite_id])
     require 'pry'; binding.pry
     "1410332026fd9cbb462bd75274e529"
