@@ -20,4 +20,10 @@ class ErrorSerializer
       error: "Email Not Found"
     }
   end
+
+  def self.bad_key
+    {
+      error: "Valid Api_key Required"
+    }
+  end
 end
