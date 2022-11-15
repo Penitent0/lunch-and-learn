@@ -9,6 +9,12 @@ class ErrorSerializer
     }
   end
 
+  def self.parse_error(error)
+    {
+      error: error.message
+    }
+  end
+
   def self.bad_country
     {
       error: "Country Not Found"

@@ -17,9 +17,12 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def destroy
-    favorite = Favorite.find(params[:favorite_id])
-    require 'pry'; binding.pry
-    "1410332026fd9cbb462bd75274e529"
+    begin
+      favorite = Favorite.find(params[:favorite_id])
+    rescue StandardError => e
+      return render json: ErrorSerializer.parse_error(e), status: 404
+    end
+    favorite.destroy
   end
 
   private 
