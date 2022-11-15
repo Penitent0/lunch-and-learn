@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post '/favorites', to: 'favorites#create'
       get '/favorites', to: 'favorites#index'
+      delete '/favorites', to: 'favorites#destroy'
       get '/recipes', to: 'recipes#index'
       get '/learning_resources', to: 'learning_resources#index'
       post '/users', to: 'users#create'

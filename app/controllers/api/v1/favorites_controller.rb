@@ -16,6 +16,15 @@ class Api::V1::FavoritesController < ApplicationController
     end
   end
 
+  def destroy
+    begin
+      favorite = Favorite.find(params[:favorite_id])
+    rescue StandardError => e
+      return render json: ErrorSerializer.parse_error(e), status: 404
+    end
+    favorite.destroy
+  end
+
   private 
 
   def verify_key
