@@ -1,6 +1,11 @@
 class Api::V1::FavoritesController < ApplicationController
   before_action :verify_key
 
+  def index
+    user = User.find_by(api_key: params[:api_key])
+    render json: FavoriteSerializer.favorites(user.favorites)
+  end
+
   def create
     user = User.find_by(api_key: params[:api_key])
     favorite = user.favorites.new(favorites_params)

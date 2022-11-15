@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_023217) do
     t.string "recipe_link"
     t.string "recipe_title"
     t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
