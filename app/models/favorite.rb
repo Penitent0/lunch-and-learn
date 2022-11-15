@@ -1,7 +1,7 @@
 class Favorite < ApplicationRecord
   belongs_to :user 
 
-  validates :country
-  validates :recipe_title
-  validates :reciple_link
+  validates :country, presence: true
+  validates :recipe_title, presence: true
+  validates :recipe_link, presence: true
 end

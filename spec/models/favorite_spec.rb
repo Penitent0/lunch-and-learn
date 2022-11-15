@@ -7,7 +7,7 @@ RSpec.describe Favorite, type: :model do
     it { should validate_presence_of(:recipe_link) }
   end
 
-  it 'relationships' do
+  describe 'relationships' do
     it { should belong_to(:user) } 
   end
 end

@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     it { should have_secure_password }
   end
 
-  it 'relationships' do
-    it { should have_many{:favorites} }
+  describe 'relationships' do
+    it { should have_many(:favorites) } 
   end
 end
