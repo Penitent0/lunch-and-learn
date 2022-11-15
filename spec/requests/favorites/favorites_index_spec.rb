@@ -43,5 +43,27 @@ RSpec.describe 'favorites#index', type: :request do
       expect(user_favorites).to have_key(:data)
       expect(user_favorites[:data].empty?).to eq(true)
     end
+
+    it 'returns bad request http status if api key is invalid or no api_key with appropriate message' do
+      get "/api/v1/favorites", params: { api_key: "Not a Valid Key" }
+
+      expect(response).to have_http_status(:bad_request)
+
+      error_message = JSON.parse(response.body, symbolize_names: true)
+
+      expect(error_message).to be_a(Hash)
+      expect(error_message).to have_key(:error)
+      expect(error_message[:error]).to eq("Valid Api_key Required")
+
+      get "/api/v1/favorites", params: { api_key: "" }
+
+      expect(response).to have_http_status(:bad_request)
+
+      error_message = JSON.parse(response.body, symbolize_names: true)
+
+      expect(error_message).to be_a(Hash)
+      expect(error_message).to have_key(:error)
+      expect(error_message[:error]).to eq("Valid Api_key Required")
+    end
   end
 end
