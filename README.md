@@ -4,7 +4,7 @@
 
 ## Description
 
-RESTful Backend API designed to expose desired country recipe and learning media info endpoints with serialized JSON responses. Utilized error handling with serializers, fully tested API exposure, and user registration, login, and authentication. Consumes the following APIs: [Edaman](https://www.edamam.com/), [Geoapify](https://www.geoapify.com/places-api), [Youtube](https://developers.google.com/youtube/v3), [Unsplash](https://unsplash.com/developers), and [Rest Countries](https://restcountries.com/)
+Non-RESTful Backend API designed to expose desired country recipe and learning media info endpoints with serialized JSON responses. Utilized error handling with serializers, fully tested API exposure, and user registration, login, and authentication. Consumes the following APIs: [Edaman](https://www.edamam.com/), [Geoapify](https://www.geoapify.com/places-api), [Youtube](https://developers.google.com/youtube/v3), [Unsplash](https://unsplash.com/developers), and [Rest Countries](https://restcountries.com/)
 
 ## [Repo Link](https://github.com/Penitent0/lunch-and-learn)
 
